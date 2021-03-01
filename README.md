@@ -3,6 +3,7 @@
 1. [General Info](#general-info)
 2. [Technologies](#technologies)
 3. [Installation](#installation)
+4. [Documentation](#ocumentation)
 ### General Info
 ***
 This project is a test, it seeks to perform a CRUD on a model called land 
@@ -31,4 +32,7 @@ $ python manage.py migrate
 $ python manage.py runserver
 ```
 Side information: Commands tested in Ubuntu
-
+## Documentation
+***
+Access to documentation
+* [Swagger](https://app.swaggerhub.com/apis/atakasuki/IDESA/1.0#/): Version 1.0
