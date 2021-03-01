@@ -1,0 +1,27 @@
+Pasos para desplegar localmente el proyecto siga los siguiente pasos (Ubuntu)
+1-Actualizar el manejador de paquetes apt
+sudo apt update
+2-Instalar pip en caso de ser necesario
+sudo apt install python3-pip -y
+3-dirijirse al directorio donde esta el proyecto
+4-Instalamos el modulo venv de ser necesario
+sudo apt install venv
+5-Crear un entorno virtual para aislar nuestro proyecto de otros paquetes ya existentes
+python3 -m venv nombre_entorno
+6-Activamos el entorno
+source nombre_entorno/bin/activate
+7-Instalamos las herramientas necesarias para ejecutar en el entorno 
+pip install django 
+pip install djangorestframework
+8-Reflejamos nuestras migraciones a una base de datos Sqlite
+python manage.py migrate
+python manage.py makemigrations
+python manage.py migrate
+9-Ejecutamos nuestro servidor de desarrollo
+python manage.py runserver
+
+
+Datos adicionales: 
+	-version 3.8 Python
+	-version 3.1.7 Django
+	-version 3.12.2 restframework

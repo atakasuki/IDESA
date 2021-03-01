@@ -1,0 +1,334 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Idesa Terrenos",
+    "description": "Esta API permite realizar un CRUD sobre un Modelo llamadao Terrenos",
+    "contact": {
+      "name": "Dany Ferreira",
+      "email": "danyferrer80@gmail.com"
+    },
+    "license": {
+      "name": "PYTHON 3.8",
+      "url": "https://docs.python.org/3.8/license.html"
+    },
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/atakasuki/IDESA/1.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "paths": {
+    "/api/v1.0/land": {
+      "get": {
+        "tags": [
+          "Retornar Terrenos"
+        ],
+        "summary": "Retorna todos los terrenos",
+        "description": "En listar los terrenos de la BD Sqlite",
+        "operationId": "list_terrenos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id Terreno",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de Terrenos.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/inline_response_200"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Añadir Terreno"
+        ],
+        "summary": "Agrega un nuevo Terreno",
+        "description": "Añade un terreno a la BD Sqlite",
+        "operationId": "add_terrenos",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Terreno añadido.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/inline_response_200"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/land/{id}": {
+      "get": {
+        "tags": [
+          "Retorna un Terreno"
+        ],
+        "summary": "Retorna un terreno",
+        "description": "En lista un terreno de la BD Sqlite",
+        "operationId": "list_terrenos_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id terreno",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Un de Terreno.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/inline_response_200"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Actualiza un Terreno"
+        ],
+        "summary": "Actualiza un terreno",
+        "description": "Actualizar un terreno de la BD Sqlite",
+        "operationId": "update_terrenos_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id terreno",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Un Terrenos Actualizado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/inline_response_200"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Eliminar un Terreno"
+        ],
+        "summary": "Elimina un terreno",
+        "description": "Eliminar un terreno de la BD Sqlite",
+        "operationId": "delete_terrenos_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id terreno",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Elimino un Terreno."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "inline_response_200": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nombre del Terreno",
+            "example": "Carmelitas"
+          },
+          "address": {
+            "type": "string",
+            "description": "Direccion del Terreno",
+            "example": "Calle1 casi calle2"
+          },
+          "latitude": {
+            "type": "number",
+            "description": "latitud",
+            "example": 54545
+          },
+          "longitude": {
+            "type": "number",
+            "description": "Longitud",
+            "example": -54545
+          },
+          "base": {
+            "type": "number",
+            "description": "base",
+            "example": 5.2
+          },
+          "height": {
+            "type": "number",
+            "description": "altura",
+            "example": 20
+          },
+          "description": {
+            "type": "string",
+            "description": "descripcion",
+            "example": "Hermoso Terreno"
+          }
+        }
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nombre del Terreno",
+            "example": "Carmelitas"
+          },
+          "address": {
+            "type": "string",
+            "description": "Direccion del Terreno",
+            "example": "Calle1 casi calle2"
+          },
+          "latitude": {
+            "type": "number",
+            "description": "latitud",
+            "example": 54545
+          },
+          "longitude": {
+            "type": "number",
+            "description": "Longitud",
+            "example": -54545
+          },
+          "base": {
+            "type": "number",
+            "description": "base",
+            "example": 5.2
+          },
+          "height": {
+            "type": "number",
+            "description": "altura",
+            "example": 20
+          },
+          "description": {
+            "type": "string",
+            "description": "descripcion",
+            "example": "Hermoso Terreno"
+          }
+        }
+      },
+      "body_1": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nombre del Terreno",
+            "example": "Carmelitas"
+          },
+          "address": {
+            "type": "string",
+            "description": "Direccion del Terreno",
+            "example": "Calle1 casi calle2"
+          },
+          "latitude": {
+            "type": "number",
+            "description": "latitud",
+            "example": 54545
+          },
+          "longitude": {
+            "type": "number",
+            "description": "Longitud",
+            "example": -54545
+          },
+          "base": {
+            "type": "number",
+            "description": "base",
+            "example": 5.2
+          },
+          "height": {
+            "type": "number",
+            "description": "altura",
+            "example": 20
+          },
+          "description": {
+            "type": "string",
+            "description": "descripcion",
+            "example": "Hermoso Terreno"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "c6b356c4-6e1b-4c7e-b8a8-cc1c4d700e68",
+		"name": "idesa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "list terrenos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}api/v1.0/land/",
+					"host": [
+						"{{url}}api"
+					],
+					"path": [
+						"v1.0",
+						"land",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filter terrenos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}api/v1.0/land/{{id}}/",
+					"host": [
+						"{{url}}api"
+					],
+					"path": [
+						"v1.0",
+						"land",
+						"{{id}}",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add terrenos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"valor\",\r\n    \"address\": \"calle\",\r\n    \"latitude\": 5.5,\r\n    \"longitude\": 6.5,\r\n    \"base\": 1.6,\r\n    \"height\": 96.1,\r\n    \"description\": \"detalles\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api/v1.0/land/",
+					"host": [
+						"{{url}}api"
+					],
+					"path": [
+						"v1.0",
+						"land",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update terrenos",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"MATILDA\",\r\n    \"address\": \"calle 1 c/ calle 2\",\r\n    \"latitude\": 45.12,\r\n    \"longitude\": 215.1,\r\n    \"base\": 50.0,\r\n    \"height\": 30.0,\r\n    \"description\": \"Lindo lote amigaa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api/v1.0/land/{{id}}/",
+					"host": [
+						"{{url}}api"
+					],
+					"path": [
+						"v1.0",
+						"land",
+						"{{id}}",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete terrenos",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}api/v1.0/land/{{id}}/",
+					"host": [
+						"{{url}}api"
+					],
+					"path": [
+						"v1.0",
+						"land",
+						"{{id}}",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9168437e-fa51-4b6d-84f7-0884156ff55d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d5d7613a-5301-4dda-9e14-b469209f121d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "c56bdb73-4e54-401a-b486-56ceb0617b35",
+			"key": "url",
+			"value": "http://127.0.0.1:8000/"
+		},
+		{
+			"id": "497c6984-3a16-46b4-ab52-d58ac3e1ba44",
+			"key": "id",
+			"value": "1"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
